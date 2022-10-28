@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<body>
+<table th:fragment="customerTable" class="table table-striped mt-5">
+  <thead>
+  <tr>
+    <th>ID</th>
+    <th>CODE</th>
+    <th>FIRST NAME</th>
+    <th>LAST NAME</th>
+    <th>ACTION</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr th:each="cus : ${customers}">
+    <td th:text="${cus.id}"></td>
+    <td th:text="${cus.code}"></td>
+    <td th:text="${cus.firstName}"></td>
+    <td th:text="${cus.lastName}"></td>
+    <td>
+      <a href="#" th:href="@{'/customers/delete?id=' + ${cus.id}}" class="btn btn-outline-danger">DELETE</a>
+    </td>
+  </tr>
+  </tbody>
+</table>
+</body>
+</html>
